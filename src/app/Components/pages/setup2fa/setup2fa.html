@@ -1,0 +1,22 @@
+<div class="auth-page">
+  <mat-card class="auth-card">
+    <h2>Setup 2FA</h2>
+
+    <p class="info">Scan this QR code in Google Authenticator or any authenticator app.</p>
+
+    @if (errorMessage) {
+      <p class="error">{{ errorMessage }}</p>
+    }
+
+    @if (qrCodeImageBase64) {
+      <div class="qr-box">
+        <img [src]="'data:image/png;base64,' + qrCodeImageBase64" alt="QR Code" style="height: 30vh;width: 40vh;
+" />
+      </div>
+
+      <button mat-raised-button color="primary" class="full-width" (click)="continueToVerify()">
+        Continue to Verify OTP
+      </button>
+    }
+  </mat-card>
+</div>
